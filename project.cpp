@@ -5,7 +5,7 @@ using namespace std;
 
 
 void ask(string s){
-  cout << "Is Your Character " << s <<" ?\n";
+  cout << "[*]Is Your Character " << s <<"?\n";
 }
 
 void characteris(string s){
@@ -16,11 +16,13 @@ void characteris(string s){
 
 int main()
 {
-  vector <string> name_list = {"Bill Gates","Lionel Messi", "Mark Zuckerberg", "Steve Jobs", "Sheikh Hasina", "Shakib Al Hasan"};
+  vector <string> name_list = {"Sheikh Mujibur Rahman","Jahir Raihan","Bill Gates", "Jeff Bejos", "Lionel Messi","Einstein", "Nicola Tesla", "Mark Zuckerberg", "Steve Jobs", "Sheikh Hasina", "Shakib Al Hasan"};
 
   for (int i = 0; i < name_list.size(); i++){
-    cout << name_list[i] << " ";
+    cout << "[" << i + 1 << "]" << name_list[i] << "\n";
   }
+  cout  << "\n";
+  cout << "Press 1[YES] or 0[NO]" << endl;
   int choice;
   ask("Male");
   cin >> choice;
@@ -76,10 +78,37 @@ int main()
     }
     else//if dead
     {
-      cout << "Your character is Steve Jobs" << endl;
-      return 0;
-    }
+      ask("was an scientist");
+      cin >> choice;
+      if (choice) { // if scientist;
+        ask("from America");
+        cin >> choice;
+        if (choice) { //if America
+          characteris("Nicola Tesla");
+        }// America end;
+        else { // if not america;
+          characteris("Einstein");
+        }// not america end;
 
+      }//scientist end;
+      else{ // if not scientist;
+          ask("was an politicaian");
+          cin >> choice;
+          if (choice){ // if politicaian
+                  characteris("Sheikh Mujibur Rahman");
+                  return 0;
+          }
+          else{ // if not politicaian;
+              characteris("Jahir Raihan");
+          }
+      }
+    }// if dead end;
+
+  }
+
+  else { // if not male 
+      characteris("Sheikh Hasina");
+      return 0;
   }
 
 
