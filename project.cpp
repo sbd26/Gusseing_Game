@@ -2,21 +2,18 @@
 #include <vector>
 using namespace std;
 
-
-
 void ask(string s){
   cout << "[*]Is Your Character " << s <<"?\n";
 }
 
 void characteris(string s){
-  cout << "Your Character is " << s << "\n";
+  cout << "The character you have choosen is " << s << "\n";
 
 }
 
-
 int main()
 {
-  vector <string> name_list = {"Sheikh Mujibur Rahman","Jahir Raihan","Bill Gates", "Jeff Bejos", "Lionel Messi","Einstein", "Nicola Tesla", "Mark Zuckerberg", "Steve Jobs", "Sheikh Hasina", "Shakib Al Hasan"};
+  vector <string> name_list = {"Adolf Hitler","Sheikh Mujibur Rahman","Jahir Raihan","Dennis Ritchie","Bill Gates", "Jeff Bejos", "Lionel Messi","Einstein", "Nicola Tesla", "Mark Zuckerberg", "Steve Jobs", "Sheikh Hasina","Angellina Jolly", "Shakib Al Hasan","Virat Kohli", "Mother Teresa"};
 
   for (int i = 0; i < name_list.size(); i++){
     cout << "[" << i + 1 << "]" << name_list[i] << "\n";
@@ -40,12 +37,16 @@ int main()
         cin >> choice;
         if (choice)//if football player
         {
-          cout << "Your character is Lionel Messi" << endl;
-          return 0;
+          characteris("Lenonel Messi");
         }//football palyer end;
         else{
-          cout << "Your Character is Shakib Al Hasan" << endl;
-          return 0;
+          ask("an allrounder");
+          cin >> choice;
+          if(choice) {
+            characteris("Shakib Al Hasan");
+          } else {
+            characteris("Virat Kohli");
+          }
         }//cricket player
 
       }//player end;
@@ -63,7 +64,14 @@ int main()
                         characteris("Bill Gates");
                     }// if Microsoft end;
                     else{ // makrzukarberg
-                          characteris("Mark Zuckerberg");
+                          ask("have any relation with Facebook");
+                          cin >> choice;
+                          if(choice) {
+                            characteris("Mark Zuckerberg");
+                          }
+                          else {
+                            characteris("Jeff Bejos");
+                          }
                     }// mark endl;
 
                 }//tech related end
@@ -78,13 +86,19 @@ int main()
     }
     else//if dead
     {
-      ask("was an scientist");
+      ask("was a scientist");
       cin >> choice;
       if (choice) { // if scientist;
         ask("from America");
         cin >> choice;
         if (choice) { //if America
-          characteris("Nicola Tesla");
+          ask("was Tech related");
+          cin >> choice;
+          if(choice) {
+            characteris("Dennis Ritchie");
+          } else {
+            characteris("Nicola Tesla");
+          }
         }// America end;
         else { // if not america;
           characteris("Einstein");
@@ -92,26 +106,46 @@ int main()
 
       }//scientist end;
       else{ // if not scientist;
-          ask("was an politicaian");
+          ask("was businessman");
           cin >> choice;
-          if (choice){ // if politicaian
-                  characteris("Sheikh Mujibur Rahman");
-                  return 0;
-          }
-          else{ // if not politicaian;
-              characteris("Jahir Raihan");
+          if(choice) {
+            characteris("Steve Jobs");
+          } else {
+            ask("was a politicaian");
+            cin >> choice;
+            if (choice){ // if politicaian
+                    ask("was an dictator");
+                    cin >> choice;
+                    if(choice) {
+                      characteris("Adolf Hitler");
+                    } else {
+                      characteris("Sheikh Mujibur Rahman");
+                    }
+            }
+            else{ // if not politicaian;
+                characteris("Jahir Raihan");
+            }
           }
       }
     }// if dead end;
-
   }
 
   else { // if not male 
-      characteris("Sheikh Hasina");
+      ask("alive");
+      cin >> choice;
+      if(choice) {
+        ask("is an actor");
+        cin >> choice;
+        if(choice) {
+          characteris("Angellina Jolly");    
+        } else {
+          characteris("Sheikha Hasina");
+        }
+      }
+      else {
+          characteris("Mother Teresa");
+      }    
       return 0;
   }
-
-
-
   return 0;
 }
