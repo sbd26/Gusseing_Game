@@ -8,11 +8,189 @@ void ask(string s){
 
 void characteris(string s){
   cout << "The character you have choosen is " << s << "\n";
+}
+void nomatch(){
+  cout << "No Match Found Please Try Again" << "\n";
+}
+
+
+void Cartoon(){
+  int ans;
+  ask("male");
+  cin >> ans;
+  if ( ans ){
+    //if male;
+    ask("cat");
+    cin >> ans;
+    if ( ans ){
+      // if cat;
+        ask("has red nose");
+        cin >> ans;
+        if (ans){
+          ask("Super Power");
+          cin >> ans;
+          if(!ans)
+          characteris("Oggy");
+          else{
+            characteris("Doreamon");
+          }
+        }
+        else
+        {
+          characteris("Tom");
+        }
+    } // cat end
+
+    else{
+      // if not cat
+      
+      ask("Human");
+      cin >> ans;
+      if (ans){
+        //if human;
+        ask("can run fast");
+        cin >> ans;
+        if (ans){
+          //if run fast then ninja hatori and ben10
+          ask("any watch");
+          cin >> ans;
+          if (!ans){
+            //ninja hatori
+            ask("Belong From Ninja Family");
+            cin >> ans;
+            if (ans){
+              characteris("Ninja Hatori");
+            }
+            else
+            {
+              cout <<"Does Your Character Like Laddu?" << "\n";
+              cin >> ans;
+              if (!ans){
+                cout << "No Match Found Please Try Again" << "\n";
+              }
+              else
+                characteris("Chota Bheem");
+            }
+          }
+          else{
+            //if not watch
+            ask("Has Alien Powers");
+            cin >> ans;
+            if (!ans){
+              cout << "No Match Found Please Try Again" << "\n";
+            }
+            else{
+              ask("can Transfrom into any Alien");
+              cin >> ans;
+              if (!ans){
+                cout << "No Match Found Please Try Again" << "\n";
+              }
+              else
+                characteris("Ben10");
+            }
+          }
+        }//if run fast end ninja hatori and ben 10
+        else{
+          ask("can make anyone happy");
+          cin >> ans;
+          if (!ans){
+            cout << "No Match Found Please Try Again" << "\n";
+          }
+          else{
+            //trying for mr bean;
+            ask("has any friend");
+            cin >> ans;
+            if (!ans){
+              cout << "No Match Found Please Try Again" << "\n";
+            }
+            else{
+              ask("has any Doll");
+              cin >> ans;
+              if (ans)
+                characteris("Mr Bean");
+              else
+                cout << "No Match Found Please Try Again" << "\n";
+            }
+
+          }
+        }
+      } // human end;
+      else{
+        ask("is Brown Color");
+        cin >> ans;
+        if (ans != 1){
+          ask("Can Figh");
+          cin >> ans;
+          if (!ans)
+            nomatch();
+          else{
+            ask("Know KungFu");
+            cin >> ans;
+            if(!ans)
+              nomatch();
+            else
+            {
+              ask("Belong from Panda");
+              cin >> ans;
+              if(ans)
+              characteris("Poo");
+              else
+                nomatch();
+            }
+          }
+        }
+        else{
+          ask("a Rat");
+          cin >> ans;
+          if (ans){
+            characteris("Jerry");
+          }
+          else{
+            ask("can Talk");
+            cin >> ans;
+            if (!ans) nomatch();
+            else{
+              ask("a Tiger");
+              cin >> ans;
+              if (!ans) nomatch();
+              else
+                characteris("Halum");
+            }
+          }
+        }
+      }
+
+    }
+
+
+
+
+
+  } // if male endl;
+
+  else{
+    // if not male
+    ask("Belong From Village");
+    cin >> ans;
+    if (!ans)
+      nomatch();
+    else{
+      ask("is sponsored By Unicef");
+      cin >> ans;
+      if (!ans)
+        nomatch();
+      else{
+        characteris("Meena");
+      }
+    }
+
+  }
+
 
 }
 
-int main()
-{
+void RealCharacter(){
+
   vector <string> name_list = {"Adolf Hitler","Sheikh Mujibur Rahman","Jahir Raihan","Dennis Ritchie","Bill Gates", "Jeff Bejos", "Lionel Messi","Einstein", "Nicola Tesla", "Mark Zuckerberg", "Steve Jobs", "Sheikh Hasina","Angellina Jolly", "Shakib Al Hasan","Virat Kohli", "Mother Teresa"};
 
   for (int i = 0; i < name_list.size(); i++){
@@ -145,7 +323,12 @@ int main()
       else {
           characteris("Mother Teresa");
       }    
-      return 0;
+      return;
   }
-  return 0;
+}
+
+int main()
+{
+  RealCharacter();
+  Cartoon();
 }
