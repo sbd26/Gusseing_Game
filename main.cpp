@@ -2,4 +2,6 @@
 
 int main(){
   Place();
+  Cartoon();
+  RealCharacter();
 }
