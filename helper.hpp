@@ -13,6 +13,9 @@ void nomatch(){
   cout << "No Match Found Please Try Again" << "\n";
 }
 
+void placeIs(string s) {
+    cout << "The place you have choosen is " << s << endl;
+}
 
 void Cartoon(){
   int ans;
@@ -43,7 +46,7 @@ void Cartoon(){
 
     else{
       // if not cat
-      
+
       ask("Human");
       cin >> ans;
       if (ans){
@@ -308,21 +311,143 @@ void RealCharacter(){
     }// if dead end;
   }
 
-  else { // if not male 
+  else { // if not male
       ask("alive");
       cin >> choice;
       if(choice) {
         ask("is an actor");
         cin >> choice;
         if(choice) {
-          characteris("Angellina Jolly");    
+          characteris("Angellina Jolly");
         } else {
           characteris("Sheikha Hasina");
         }
       }
       else {
           characteris("Mother Teresa");
-      }    
+      }
       return;
   }
 }
+
+
+void Place() {
+    vector<string> places = {
+                                "The Great Pyramid of Giza",
+                                "Burj Khalifa",
+                                "National Martyrs' Monument",
+                                "Central Shaheed Minar",
+                                "Hagia Sophia",
+                                "Taj Mahal",
+                                "Great Wall",
+                                "Eiffel Tower",
+                                "Statue of Liberty",
+                                "White House",
+                                "Sonargaon Museum",
+                            };
+    for (int i = 0; i < places.size(); i++){
+        cout << "[" << i + 1 << "]" << places[i] << "\n";
+    }
+    cout  << "\n";
+    cout << "Press 1[YES] or 0[NO]" << endl;
+    int choice;
+    cout << "Is this inside Bangladesh?" << endl;
+    cin >> choice;
+    if(choice) {
+        // Inside bangladesh
+        cout << "Is this related to history of Bangladesh?";
+        cin >> choice;
+        if(choice) {
+            cout << "Is this related to Language movement of Bangladesh?\n";
+            cin >> choice;
+            if(choice) {
+                placeIs("Shaheed Minar");
+            }
+            else {
+                cout << "Is this related to Liberation war?";
+                cin >> choice;
+                if(choice) {
+                    placeIs("Nation Martyrs' Monument\n");
+                } else {
+                    cout << "Is this a place for tourist and visitor to see historic art and folk?\n";
+                    cin >> choice;
+                    if(choice) {
+                        placeIs("Sonargaon Museum");
+                    } else {
+                        nomatch();
+                    }
+                }
+            }
+        }
+        else {
+            nomatch();
+        }
+    }
+    else {
+        cout << "Is this inside Middle East?\n";
+        cin >> choice;
+        if(choice) {
+            //"Hagia Sophia",  "The Great Pyramid of Giza","Burj Khalifa",
+            cout << "Is this an ancient architecture?\n";
+            cin >> choice;
+            if(choice) {
+                cout << "Is this a one of Seven Wonders of the Ancient World?\n";
+                cin >> choice;
+                if(choice) {
+                    placeIs("The Great Pyramid of Giza");
+                } else {
+                    placeIs("Hagia Sophia");
+                }
+            } else {
+                cout << "Is this well known for tallest building?\n";
+                cin >> choice;
+                if(choice) {
+                    placeIs("Burj Khalifa");
+                } else {
+                    nomatch();
+                }
+            }
+        } else {
+            cout << "Is this in Asia?\n";
+            cin >> choice;
+            if(choice) {
+                // "Taj Mahal"
+                // "Great Wall"
+                cout << "Is this build for dedicating to a emperor's wife?\n";
+                cin >> choice;
+                if(choice) {
+                    placeIs("Taj Mahal");
+                } else {
+                    placeIs("Great Wall");
+                }
+            } else {
+                /*  "Eiffel Tower",
+                    "Statue of Liberty",
+                    "White House"
+                */
+                cout << "Is this in USA?\n";
+                cin >> choice;
+                if(choice) {
+                    cout << "Is this place related to president?\n";
+                    cin >> choice;
+                    if(choice) {
+                        placeIs("White House");
+                    } else {
+                        cout << "Is this a gift from France?\n";
+                        cin >> choice;
+                        if(choice) {
+                            placeIs("Statue Of Liberty");
+                        } else {
+                            nomatch();
+                        }
+                    }
+                }
+                else {
+                    placeIs("Eiffel Tower\n");
+                }
+            }
+        }
+    }
+}
+
+
